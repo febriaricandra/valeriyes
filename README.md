@@ -12,4 +12,4 @@ latihan membuat Ecommerce dengan Javascript + tailwindcss
 
 
 
-![image info](progatee.PNG)
+![image info](vulkano.PNG)
