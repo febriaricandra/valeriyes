@@ -1,11 +1,19 @@
 const btn = document.querySelector("button.mobile-menu-button");
 const menu = document.querySelector(".mobile-menu");
-const url = 'https://fakestoreapi.com/products'
+const url = 'https://fakestoreapi.com/products';
+const searchBTN = document.getElementById('search');
+const searchIcon = document.getElementById('searchItem');
+const closeItem = document.getElementById('close')
 
 btn.addEventListener("click", () => {
   menu.classList.toggle("hidden");
 });
-
+searchItem.onclick = function (){
+  searchBTN.style.display = "block"
+}
+closeItem.onclick = function(){
+  searchBTN.style.display = "hidden"
+}
 fetch(url)
   .then(function(response){
     return response.json();
@@ -21,7 +29,7 @@ fetch(url)
     for (let i=0; i<data.length; i++){
       var div = document.createElement("div")
       div.innerHTML = `
-      <a href='/'>
+      <a href='item/${data[i].id}'>
       <div class='p-2' style="width: 200px;">
       <img src=${data[i].image} class='w-120px' />
       <h2 class="text-sm text-left">${data[i].price}</h2>
