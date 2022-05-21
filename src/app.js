@@ -1,20 +1,15 @@
 const btn = document.querySelector("button.mobile-menu-button");
 const menu = document.querySelector(".mobile-menu");
 const url = 'https://fakestoreapi.com/products';
-const searchBTN = document.getElementById('search');
-const searchIcon = document.getElementById('searchItem');
+const searchIcon = document.getElementById('search-icon');
 const closeItem = document.getElementById('close')
 
 btn.addEventListener("click", () => {
   menu.classList.toggle("hidden");
 });
-searchItem.onclick = function (){
-  searchBTN.style.display = "block"
-}
-closeItem.onclick = function(){
-  searchBTN.style.display = "hidden"
-}
-fetch(url)
+
+const getProducts = async (url) =>{
+  fetch(url)
   .then(function(response){
     return response.json();
   })
@@ -41,3 +36,5 @@ fetch(url)
       console.log(data)
     }
   }
+}
+getProducts(url);

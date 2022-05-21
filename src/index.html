@@ -44,14 +44,18 @@
             <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"
               >Home</a
             >
-            <a href="/src/page/products.html" class="py-5 px-3 text-gray-700 hover:text-gray-900"
+            <a
+              href="/src/page/products.html"
+              class="py-5 px-3 text-gray-700 hover:text-gray-900"
               >Products</a
             >
           </div>
 
           <!-- Search & Cart -->
-          <div class="sm:hidden items-center space-x-1 md:flex">
-            <a href="" class="py-5 px-3"><i class="fas fa-search"></i></a>
+          <div class="hidden items-center space-x-1 md:flex">
+            <button class="py-5 px-3" id="btnSearch">
+              <i class="fas fa-search"></i>
+            </button>
             <a href="/src/page/cart.html" class="py-5 px-3"
               ><i class="fas fa-shopping-cart"></i
             ></a>
@@ -81,19 +85,24 @@
 
       <!-- Responsive Menu -->
       <div class="mobile-menu hidden md:hidden">
-        <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200"
-          >Home</a
-        >
-        <a href="/src/page/products.html" class="block py-2 px-4 text-sm hover:bg-gray-200"
+        <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Home</a>
+        <a
+          href="/src/page/products.html"
+          class="block py-2 px-4 text-sm hover:bg-gray-200"
           >Products</a
         >
       </div>
 
-      <div class="hidden px-4 py-4 bg-white absolute top-0 left-0 right-0" id="search">
-        <div class="container-form flex justify-center flex-row gap-2">
-          <form class="w-6/12" action="/search">
-            <div class="input-wrapper border-2 border-black rounded-lg flex flex-row justify-between">
-              <input type="text w-12/12" placeholder="search">
+      <div
+        class="absolute top-0 left-0 right-0 hidden bg-white px-4 py-4"
+        id="search"
+      >
+        <div class="container-form flex flex-row justify-center gap-2">
+          <form class="w-6/12" action="">
+            <div
+              class="input-wrapper flex flex-row justify-between rounded-lg border-2 border-black"
+            >
+              <input class="w-full" type="text w-12/12" placeholder="search" />
               <button class="p-2" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
@@ -107,30 +116,33 @@
     </nav>
 
     <!-- Content -->
-    <section class="py-32 text-center bg-auto bg-center" style="background-image: url(/img/bg-image.png)">
-      <h1 class="text-white text-4xl font-extrabold">Vulkan Apparel store</h1>
-      <p class="text-white text-lg">Get your favorites streetwear! wear clothes, wear bracelet, and other fav wear.</p>
+    <section
+      class="bg-auto bg-center py-32 text-center"
+      style="background-image: url(/img/bg-image.png)"
+    >
+      <h1 class="text-4xl font-extrabold text-white">Vulkan Apparel store</h1>
+      <p class="text-lg text-white">
+        Get your favorites streetwear! wear clothes, wear bracelet, and other
+        fav wear.
+      </p>
     </section>
-
-
-
-
 
     <section class="py-32 text-center">
-      <div class="grid md:grid-cols-4 gap-4 sm:grid-cols-1 justify-center px-2" id="products">
-        
-      </div>
+      <div
+        class="grid justify-center gap-4 px-2 sm:grid-cols-1 md:grid-cols-4"
+        id="products"
+      ></div>
     </section>
 
-
-    <footer class="bg-white border-t-2 border-black">
+    <footer class="border-t-2 border-black bg-white">
       <div class="mx-auto max-w-6xl px-4">
-        <div class="flex justify-between items-center">
+        <div class="flex items-center justify-between">
           <div>
-            <a 
-            href="#"
-            class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
-            <span class="font-extrabold text-2xl">Vulkan.store</span>
+            <a
+              href="#"
+              class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900"
+            >
+              <span class="text-2xl font-extrabold">Vulkan.store</span>
             </a>
           </div>
           <div>
@@ -147,7 +159,19 @@
         </div>
       </div>
     </footer>
-    
+
     <script src="app.js" defer></script>
+    <script>
+      const searchDisplay = document.getElementById('search')
+      const searchBtn = document.getElementById('btnSearch')
+      const closeBtn = document.getElementById('close')
+      
+      searchBtn.addEventListener("click", function(){
+        searchDisplay.style.display = "block"
+      })
+      closeBtn.addEventListener("click", function(){
+        searchDisplay.style.display = "none"
+      })
+    </script>
   </body>
 </html>
