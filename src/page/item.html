@@ -98,19 +98,10 @@
       </div>
     </nav>
 
-
-    <section class="grid grid-cols-2 justify-center my-12 py-12 px-12 gap-2">
-        <div class="grid-cols-6">
-            <img class="" src="/img/bg-image.png" alt="gambar" />
-        </div>
-        <div class="grid-cols-6">
-            <h1>Short Sleeve Unisex Tshirt</h1>
-            <h4>Price$$</h4>
-            <h3>Tax included</h3>
-            <h2>Size</h2>
-            <button>Add to Cart</button>
-            <button>Buy it now</button>
-        </div>
+    <section
+      id="details"
+      class="my-12 grid grid-cols-2 justify-center gap-2 py-12 px-12"
+    > 
     </section>
 
     <footer class="border-t-2 border-black bg-white">
@@ -142,11 +133,45 @@
     <script>
       const btn = document.querySelector("button.mobile-menu-button");
       const menu = document.querySelector(".mobile-menu");
-      const url = "https://fakestoreapi.com/products";
+      const url = "https://fakestoreapi.com/products/";
 
       btn.addEventListener("click", () => {
         menu.classList.toggle("hidden");
       });
+      const getProducts = async (url) => {
+        fetch(url)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            appendData(data);
+          })
+          .catch(function (err) {
+            console.log("error:" + err);
+          });
+        function appendData(data) {
+          var details = document.getElementById("details");
+          for (let i = 0; i < data.length; i++) {
+            var div = document.createElement("div");
+            div.innerHTML = `
+      <div class="grid-cols-6">
+            <img class="" src="${data[i].image}" alt="gambar" />
+        </div>
+        <div class="grid-cols-6">
+            <h1>${data[i].title}</h1>
+            <h4>${data[i].price}</h4>
+            <h3>Tax included</h3>
+            <h2>Size</h2>
+            <button>Add to Cart</button>
+            <button>Buy it now</button>
+        </div>
+      `;
+            details.appendChild(div).className = "grid";
+            console.log(data);
+          }
+        }
+      };
+      getProducts(url);
     </script>
   </body>
 </html>
